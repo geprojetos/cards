@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { FormLoginComponent } from './form-login/form-login.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormCadastroComponent } from './form-cadastro/form-cadastro.component';
 
 @NgModule({
   imports: [
@@ -11,7 +12,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
   ],
   declarations: [
-    FormLoginComponent
+    FormLoginComponent,
+    FormCadastroComponent
   ]
 })
 export class FormModule { }

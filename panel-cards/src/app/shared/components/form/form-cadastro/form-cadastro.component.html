@@ -1,0 +1,96 @@
+<section class="mb-4">
+  <header class="text-center">
+    <h3 class="text-muted">
+      Faça o seu cadastro
+    </h3>
+  </header>
+</section>
+  
+<form>
+  <fieldset>
+    <!-- email -->
+    <div class="form-group">
+      <label for="email">Digite o seu e-mail para cadastro:</label>
+
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text bg-info text-white">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+          </span>
+        </div>
+        <input 
+          type="email" 
+          class="form-control" 
+          id="email" 
+          placeholder="Digite o seu email aqui">
+      </div>
+    </div>
+
+    <!-- nome completo -->
+    <div class="form-group">
+      <label for="fullName">Digite o seu nome completo para cadastro:</label>
+
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text bg-info text-white">
+              <i class="fa fa-user-plus" aria-hidden="true"></i>
+          </span>
+        </div>
+        <input 
+          type="text" 
+          class="form-control" 
+          id="fullName" 
+          placeholder="Digite o seu nome completo aqui">
+      </div>
+    </div>
+
+    <!-- login -->
+    <div class="form-group">
+      <label for="shortName">Digite o seu nome para cadastro:</label>
+
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text bg-info text-white">
+              <i class="fa fa-user" aria-hidden="true"></i>
+          </span>
+        </div>
+        <input 
+          type="text" 
+          class="form-control" 
+          id="shortName" 
+          placeholder="Digite o seu nome aqui">
+      </div>
+    </div>
+
+    <!-- senha -->
+    <div class="form-group">
+      <label for="password">Digite a sua senha para cadastro:</label>
+
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text bg-info text-white">
+              <i class="fa fa-key" aria-hidden="true"></i>
+          </span>
+        </div>
+        <input 
+          type="password" 
+          class="form-control" 
+          id="password" 
+          placeholder="Digite a sua senha aqui">
+      </div>
+    </div>
+  </fieldset>
+  
+  <fieldset>
+      <button type="submit" class="btn btn-outline-primary btn-block">Cadastrar</button>
+      <small>
+        ou
+        <a 
+          class="text-primary"
+          [routerLink]="['']">
+          Fazer login
+        </a>
+      </small>
+  </fieldset>
+</form>
+  
