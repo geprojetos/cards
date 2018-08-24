@@ -1,3 +1,59 @@
-<p>
-  form-login works!
-</p>
+<section class="mb-4">
+  <header class="text-center">
+    <h3 class="text-muted">
+      Faça o seu login
+    </h3>
+  </header>
+</section>
+
+<form>
+  <fieldset>
+    <!-- login -->
+    <div class="form-group">
+      <label for="shortName">Digite o seu nome para entrar na aplicação:</label>
+
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text bg-info text-white">
+              <i class="fa fa-user" aria-hidden="true"></i>
+          </span>
+        </div>
+        <input 
+          type="text" 
+          class="form-control" 
+          id="shortName" 
+          placeholder="Digite o seu nome aqui">
+      </div>
+    </div>
+
+    <!-- senha -->
+    <div class="form-group">
+      <label for="password">Digite a sua senha para entrar na aplicação:</label>
+
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text bg-info text-white">
+              <i class="fa fa-key" aria-hidden="true"></i>
+          </span>
+        </div>
+        <input 
+          type="password" 
+          class="form-control" 
+          id="password" 
+          placeholder="Digite a sua senha aqui">
+      </div>
+    </div>
+  </fieldset>
+  
+  <fieldset>
+      <button type="submit" class="btn btn-outline-primary btn-block">Entrar</button>
+      <small>
+        ou
+        <a 
+          class="text-primary"
+          [routerLink]="['']">
+          Fazer cadastro
+        </a>
+      </small>
+  </fieldset>
+</form>
