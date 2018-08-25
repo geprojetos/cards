@@ -13,6 +13,7 @@ import { User } from '../../../interfaces/user/user';
 export class FormLoginComponent implements OnInit {
 
   formLogin: FormGroup;
+  erroLogin: boolean = false;
 
   constructor(
     private _formBuilder: FormBuilder,
@@ -53,6 +54,10 @@ export class FormLoginComponent implements OnInit {
       .subscribe( () => {
 
         this._router.navigate([user.shortName, 'cards'])
-      }, erro => console.log(erro))
+      }, erro => {
+
+        this.erroLogin = true
+        console.log(erro)
+      })
   }
 }
