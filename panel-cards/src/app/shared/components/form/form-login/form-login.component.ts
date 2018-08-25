@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 import { FormLoginService } from './form-login.service';
 import { User } from '../../../interfaces/user/user';
@@ -17,7 +17,7 @@ export class FormLoginComponent implements OnInit {
   constructor(
     private _formBuilder: FormBuilder,
     private _formLoginService: FormLoginService,
-    private _activatedRoute: ActivatedRoute
+    private _router: Router
   ) { }
 
   ngOnInit() {
@@ -52,7 +52,7 @@ export class FormLoginComponent implements OnInit {
       .login(user.shortName, user.password)
       .subscribe( () => {
 
-        console.log('logado')
+        this._router.navigate([user.shortName, 'cards'])
       }, erro => console.log(erro))
   }
 }

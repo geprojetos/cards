@@ -6,6 +6,10 @@ const appRoutes: Routes = [
   {
     path: '',
     loadChildren: './pages/home/home.module#HomeModule'
+  },
+  {
+    path: ':userName/cards',
+    loadChildren: './pages/list/list.module#ListModule'
   }
 ]
 
