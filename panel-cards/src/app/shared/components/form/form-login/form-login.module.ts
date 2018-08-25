@@ -3,11 +3,15 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import { FormLoginComponent } from './form-login.component';
+import { FormMessageValidateModule } from '../form-message-validate/form-message-validate.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule,
+    FormMessageValidateModule
   ],
   declarations: [
     FormLoginComponent

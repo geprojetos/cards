@@ -1,19 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 import { FormLoginComponent } from './form-login/form-login.component';
 import { FormCadastroComponent } from './form-cadastro/form-cadastro.component';
+import { FormMessageValidateComponent } from './form-message-validate/form-message-validate.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule,
   ],
   declarations: [
     FormLoginComponent,
-    FormCadastroComponent
+    FormCadastroComponent,
+    FormMessageValidateComponent
   ]
 })
 export class FormModule { }

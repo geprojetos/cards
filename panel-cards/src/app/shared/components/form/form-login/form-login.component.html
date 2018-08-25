@@ -6,7 +6,8 @@
   </header>
 </section>
   
-<form>
+<form
+  [formGroup]="formLogin">
   <fieldset>
     <!-- login -->
     <div class="form-group">
@@ -22,8 +23,26 @@
           type="text" 
           class="form-control" 
           id="shortName" 
-          placeholder="Digite o seu nome aqui">
-      </div>
+          name="shortName"
+          placeholder="Digite o seu nome aqui"
+          formControlName="shortName">
+        </div>
+
+        <!-- mensagens validação -->
+        <app-form-message-validate
+          *ngIf="formLogin.get('shortName').errors?.required" 
+          text="Nome obrigatório">
+        </app-form-message-validate>
+
+        <app-form-message-validate
+          *ngIf="formLogin.get('shortName').errors?.minlength" 
+          text="O nome deve conter pelo menos 2 caracteres">
+        </app-form-message-validate>
+
+        <app-form-message-validate
+          *ngIf="formLogin.get('shortName').errors?.maxlength" 
+          text="O nome deve conter no máximo 15 caracteres">
+        </app-form-message-validate>
     </div>
 
     <!-- senha -->
@@ -39,14 +58,37 @@
         <input 
           type="password" 
           class="form-control" 
+          name="password"
           id="password" 
-          placeholder="Digite a sua senha aqui">
+          placeholder="Digite a sua senha aqui"
+          formControlName="password">
       </div>
+
+      <!-- mensagens validação -->
+      <app-form-message-validate
+        *ngIf="formLogin.get('password').errors?.required" 
+        text="Senha obrigatória">
+      </app-form-message-validate>
+
+      <app-form-message-validate
+        *ngIf="formLogin.get('password').errors?.minlength" 
+        text="A senha deve conter no mínimo 3 caracteres">
+      </app-form-message-validate>
+
+      <app-form-message-validate
+        *ngIf="formLogin.get('password').errors?.maxlength" 
+        text="A senha deve conter no máximo 10 caracteres">
+      </app-form-message-validate>
     </div>
   </fieldset>
   
   <fieldset>
-      <button type="submit" class="btn btn-outline-primary btn-block">Entrar</button>
+      <button 
+        type="submit" 
+        class="btn btn-outline-primary btn-block"
+        [disabled]="formLogin.invalid">
+            Entrar
+      </button>
       <small>
         ou
         <a 
