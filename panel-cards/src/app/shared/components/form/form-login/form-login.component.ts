@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+
+import { FormLoginService } from './form-login.service';
+import { User } from '../../../interfaces/user/user';
 
 @Component({
   selector: 'app-form-login',
@@ -11,7 +15,9 @@ export class FormLoginComponent implements OnInit {
   formLogin: FormGroup;
 
   constructor(
-    private _formBuilder: FormBuilder
+    private _formBuilder: FormBuilder,
+    private _formLoginService: FormLoginService,
+    private _activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit() {
@@ -36,4 +42,17 @@ export class FormLoginComponent implements OnInit {
     })
   }
 
+  login(e: Event) {
+
+    e.preventDefault()
+
+    const user = this.formLogin.getRawValue() as User;
+
+    this._formLoginService
+      .login(user.shortName, user.password)
+      .subscribe( () => {
+
+        console.log('logado')
+      }, erro => console.log(erro))
+  }
 }
