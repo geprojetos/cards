@@ -7,6 +7,8 @@ import { FormLoginComponent } from './form-login.component';
 import { FormMessageValidateModule } from '../form-message-validate/form-message-validate.module';
 import { FormLoginService } from './form-login.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ServiceUserService } from '../../../services/service-user/service.user.service';
+import { ServiceTokenService } from '../../../services/service-token/service-token.service';
 
 @NgModule({
   imports: [
@@ -23,7 +25,9 @@ import { HttpClientModule } from '@angular/common/http';
     FormLoginComponent
   ],
   providers: [
-    FormLoginService
+    FormLoginService,
+    ServiceUserService,
+    ServiceTokenService
   ]
 })
 export class FormLoginModule { }

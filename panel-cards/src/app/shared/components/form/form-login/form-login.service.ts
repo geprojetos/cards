@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 
+import { ServiceUserService } from '../../../services/service-user/service.user.service';
+
 const apiLogin = 'http://localhost:3000';
 
 @Injectable()
@@ -9,6 +11,7 @@ export class FormLoginService {
 
   constructor(
     private _httpClient: HttpClient,
+    private _userService: ServiceUserService
   ) { }
 
   login(userName: string, userPassword: string) {
@@ -23,7 +26,7 @@ export class FormLoginService {
 
         const token = res.headers.get('x-access-token')
         
-        
+        this._userService.setToken(token)
       })) 
   }
 }
