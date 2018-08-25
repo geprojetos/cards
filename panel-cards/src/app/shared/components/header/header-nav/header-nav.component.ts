@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Payload } from '../../../interfaces/payload/payload';
+import { ServiceUserService } from '../../../services/service-user/service.user.service';
 
 @Component({
   selector: 'app-header-nav',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderNavComponent implements OnInit {
 
-  constructor() { }
+  userObservable: Observable<Payload>;
+
+  constructor(
+    private _userService: ServiceUserService
+  ) { }
 
   ngOnInit() {
+
+    this.userObservable = this._userService.getUserPayload()
   }
 
 }
