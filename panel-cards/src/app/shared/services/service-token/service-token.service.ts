@@ -1,32 +1,29 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 
 const key = 'key';
 
 @Injectable()
 export class ServiceTokenService {
 
-  constructor(
-    private _httpClient: HttpClient
-  ) { }
+  constructor() { }
 
   hasToken(): boolean {
 
     return !!this.getToken()
   }
 
-  getToken() {
+  getToken(): string {
 
-    return localStorage.getItem(key)
+    return window.localStorage.getItem(key)
   }
 
-  setToken(token: string) {
+  setToken(token: string): void {
 
-    localStorage.setItem(key, token)
+    window.localStorage.setItem(key, token)
   }
 
-  removeToken() {
+  removeToken(): void {
 
-    localStorage.removeItem(key)
+    window.localStorage.removeItem(key)
   }
 }

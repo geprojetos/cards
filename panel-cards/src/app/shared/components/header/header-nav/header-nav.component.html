@@ -1,12 +1,12 @@
 <header class="bg-info fixed-top">
   <div class="container">
-    <nav class="p-3">
+    <nav class="pt-3 pb-3">
       <!-- login -->
       <div 
         class="login navbar navbar-expand-lg navbar-light p-0"
-        *ngIf="(userObservable | async) as user; else logout" >
+        *ngIf="(userObservable | async) as user; else noUser">
         <h1>
-          <a class="text-white" href="#">Cards</a>
+          <a class="text-white" [routerLink]="['']">Cards</a>
         </h1>
         <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -14,10 +14,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav col-12 p-0 d-flex justify-content-end">
             <li class="text-white order-lg-12 text-center">
-              <i class="fa fa-user-circle fa-2x align-middle pr-2" aria-hidden="true"></i>
+              <i class="fa fa-user-circle fa-2x align-middle pr-1" aria-hidden="true"></i>
               <span class="pr-1 text-capitalize">{{ user.name }}</span>
               <small>
-                <a>
+                <a (click)="logout($event)">
                   Sair
                 </a>
               </small>
@@ -30,13 +30,19 @@
       </div>
 
       <!-- logout -->
-      <ng-template #logout>
-        <div class="col-12 logout">
-          <h1 class="m-0 text-center">
-            <a class="text-white" href="#">
+      <ng-template #noUser>
+        <div  class="d-flex justify-content-between align-items-center">
+          <h1 class="m-0">
+            <a class="text-white" [routerLink]="['']">
               Cards
             </a>
           </h1>
+          <a 
+            class="text-white"
+            [routerLink]="['']">
+            <i class="fa fa-user-circle fa-2x align-middle pr-1" aria-hidden="true"></i>
+            Login
+          </a>
         </div>
       </ng-template>
     </nav>
