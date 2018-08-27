@@ -6,7 +6,8 @@
   </header>
 </section>
   
-<form>
+<form 
+  [formGroup]="formCadastro">
   <fieldset>
     <!-- email -->
     <div class="form-group">
@@ -21,9 +22,22 @@
         <input 
           type="email" 
           class="form-control" 
+          name="email"
           id="email" 
-          placeholder="Digite o seu email aqui">
+          placeholder="Digite o seu email aqui"
+          formControlName="email">
       </div>
+
+      <!-- mensagens validação email -->
+      <app-form-message-validate
+        *ngIf="formCadastro.get('email').errors?.required" 
+        text="E-mail obrigatório">
+      </app-form-message-validate>
+
+      <app-form-message-validate
+        *ngIf="formCadastro.get('email').errors?.email" 
+        text="E-mail inválido, exemplo email@email.com">  
+      </app-form-message-validate>
     </div>
 
     <!-- nome completo -->
@@ -40,8 +54,27 @@
           type="text" 
           class="form-control" 
           id="fullName" 
-          placeholder="Digite o seu nome completo aqui">
-      </div>
+          placeholder="Digite o seu nome completo aqui"
+          formControlName="fullName">
+
+        </div>
+
+        <!-- mensagens validação nome completo -->
+        <app-form-message-validate  
+          *ngIf="formCadastro.get('fullName').errors?.required" 
+          text="Nome completo obrigatório">
+        </app-form-message-validate>
+
+        <app-form-message-validate  
+          *ngIf="formCadastro.get('fullName').errors?.minlength" 
+          text="Nome completo deve conter pelo menos 10 caracteres">
+        </app-form-message-validate>
+
+        <app-form-message-validate  
+          *ngIf="formCadastro.get('fullName').errors?.maxlength" 
+          text="Nome completo deve conter no máximo 50 caracteres">
+        </app-form-message-validate>
+
     </div>
 
     <!-- login -->
@@ -57,9 +90,32 @@
         <input 
           type="text" 
           class="form-control" 
+          name="shortName"
           id="shortName" 
-          placeholder="Digite o seu nome aqui">
+          placeholder="Digite o seu nome aqui"
+          formControlName="shortName">
       </div>
+
+      <!-- mensagens validação nome -->
+      <app-form-message-validate
+        *ngIf="formCadastro.get('shortName').errors?.required" 
+        text="Nome obrigatório">
+      </app-form-message-validate>
+
+      <app-form-message-validate
+        *ngIf="formCadastro.get('shortName').errors?.minlength" 
+        text="O nome deve conter pelo menos 2 caracteres">
+      </app-form-message-validate>
+
+      <app-form-message-validate
+        *ngIf="formCadastro.get('shortName').errors?.maxlength" 
+        text="O nome deve conter no máximo 15 caracteres">
+      </app-form-message-validate>
+
+      <app-form-message-validate
+        *ngIf="formCadastro.get('shortName').errors?.lowerCase" 
+        text="O nome não deve conter letras maiúsculas">
+      </app-form-message-validate>
     </div>
 
     <!-- senha -->
@@ -76,13 +132,36 @@
           type="password" 
           class="form-control" 
           id="password" 
-          placeholder="Digite a sua senha aqui">
+          placeholder="Digite a sua senha aqui"
+          formControlName="password">
       </div>
+
+      <!-- mensagens validação senha -->
+      <app-form-message-validate
+        *ngIf="formCadastro.get('password').errors?.required" 
+        text="Senha obrigatória">
+      </app-form-message-validate>
+
+      <app-form-message-validate
+        *ngIf="formCadastro.get('password').errors?.minlength" 
+        text="A senha deve conter pelo menos 3 caracteres">
+      </app-form-message-validate>
+
+      <app-form-message-validate
+        *ngIf="formCadastro.get('password').errors?.maxlength" 
+        text="A senha deve conter pelo menos 10 caracteres">
+      </app-form-message-validate>
     </div>
   </fieldset>
   
   <fieldset>
-      <button type="submit" class="btn btn-outline-primary btn-block">Cadastrar</button>
+      <button 
+        type="submit" 
+        class="btn btn-outline-primary btn-block"
+        [disabled]="formCadastro.invalid">
+          Cadastrar
+      </button>
+
       <small>
         ou
         <a 
