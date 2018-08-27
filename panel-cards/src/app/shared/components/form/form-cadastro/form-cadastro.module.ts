@@ -5,6 +5,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { FormCadastroComponent } from './form-cadastro.component';
 import { FormMessageValidateModule } from '../form-message-validate/form-message-validate.module';
+import { FormCadastroService } from './form-cadastro.service';
+import { FormCadastroValidatorService } from './form-cadastro-validator.service';
 
 @NgModule({
   imports: [
@@ -18,6 +20,10 @@ import { FormMessageValidateModule } from '../form-message-validate/form-message
   ],
   exports: [
     FormCadastroComponent
+  ],
+  providers: [
+    FormCadastroService,
+    FormCadastroValidatorService
   ]
 })
 export class FormCadastroModule { }

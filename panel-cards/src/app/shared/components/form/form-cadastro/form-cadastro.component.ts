@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { formValidatorLowerCase } from '../form-validators/form-validators.lowercase';
+import { FormCadastroValidatorService } from './form-cadastro-validator.service';
 
 @Component({
   selector: 'app-form-cadastro',
@@ -13,7 +14,8 @@ export class FormCadastroComponent implements OnInit {
   formCadastro: FormGroup
 
   constructor(
-    private _formBuilder: FormBuilder
+    private _formBuilder: FormBuilder,
+    private _formCadastroValidator: FormCadastroValidatorService
   ) { }
 
   ngOnInit() {
@@ -41,7 +43,8 @@ export class FormCadastroComponent implements OnInit {
           Validators.minLength(2),
           Validators.maxLength(15),
           formValidatorLowerCase
-        ]
+        ],
+        this._formCadastroValidator.validatorShortName()
       ],
       password: [
         '',
@@ -52,6 +55,13 @@ export class FormCadastroComponent implements OnInit {
         ]
       ]
     })
+  }
+
+  cadastrar(e: Event) {
+
+    e.preventDefault()
+
+    console.log('cadastrar')
   }
 
 }
