@@ -24,7 +24,7 @@ export class FormLoginComponent implements OnInit {
   ngOnInit() {
 
     this.formLogin = this._formBuilder.group({
-      shortName: [
+      userName: [
         '',
         [
           Validators.required,
@@ -50,10 +50,10 @@ export class FormLoginComponent implements OnInit {
     const user = this.formLogin.getRawValue() as User;
 
     this._formLoginService
-      .login(user.shortName, user.password)
+      .login(user.userName, user.password)
       .subscribe( () => {
 
-        this._router.navigate([user.shortName, 'cards'])
+        this._router.navigate([user.userName, 'cards'])
       }, erro => {
 
         this.erroLogin = true

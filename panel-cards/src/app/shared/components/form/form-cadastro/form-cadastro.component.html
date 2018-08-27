@@ -80,7 +80,7 @@
 
     <!-- login -->
     <div class="form-group">
-      <label for="shortName">Digite o seu nome para cadastro:</label>
+      <label for="userName">Digite o seu nome para cadastro:</label>
 
       <div class="input-group">
         <div class="input-group-prepend">
@@ -91,40 +91,40 @@
         <input 
           type="text" 
           class="form-control" 
-          name="shortName"
-          id="shortName" 
+          name="userName"
+          id="userName" 
           placeholder="Digite o seu nome aqui"
-          formControlName="shortName">
+          formControlName="userName">
       </div>
 
       <!-- mensagens validação nome -->
       <app-form-message-validate
-        *ngIf="formCadastro.get('shortName').errors?.required" 
+        *ngIf="formCadastro.get('userName').errors?.required" 
         text="Nome obrigatório">
       </app-form-message-validate>
 
       <app-form-message-validate
-        *ngIf="formCadastro.get('shortName').errors?.minlength" 
+        *ngIf="formCadastro.get('userName').errors?.minlength" 
         text="O nome deve conter pelo menos 2 caracteres">
       </app-form-message-validate>
 
       <app-form-message-validate
-        *ngIf="formCadastro.get('shortName').errors?.maxlength" 
+        *ngIf="formCadastro.get('userName').errors?.maxlength" 
         text="O nome deve conter no máximo 15 caracteres">
       </app-form-message-validate>
 
       <app-form-message-validate
-        *ngIf="formCadastro.get('shortName').errors?.lowerCase" 
+        *ngIf="formCadastro.get('userName').errors?.lowerCase" 
         text="O nome não deve conter letras maiúsculas">
       </app-form-message-validate>
 
       <app-form-message-validate
-        *ngIf="formCadastro.get('shortName').errors?.validateShortName" 
+        *ngIf="formCadastro.get('userName').errors?.validateShortName" 
         text="Já temos usuário cadastrado com esse valor, tente novamente">
       </app-form-message-validate>
 
       <small 
-        *ngIf="formCadastro.get('shortName').valid"
+        *ngIf="formCadastro.get('userName').valid"
         class="form-text text-success">
         Nome permitido
       </small>
@@ -170,7 +170,7 @@
       <button 
         type="submit" 
         class="btn btn-outline-primary btn-block"
-        [disabled]="formCadastro.invalid && formCadastro.pending">
+        [disabled]="formCadastro.invalid || formCadastro.pending">
           Cadastrar
       </button>
 

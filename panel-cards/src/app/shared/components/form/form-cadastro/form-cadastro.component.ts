@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { formValidatorLowerCase } from '../form-validators/form-validators.lowercase';
 import { FormCadastroValidatorService } from './form-cadastro-validator.service';
+import { User } from '../../../interfaces/user/user';
+import { FormCadastroService } from './form-cadastro.service';
+import { FormLoginService } from '../form-login/form-login.service';
 
 @Component({
   selector: 'app-form-cadastro',
@@ -15,7 +19,10 @@ export class FormCadastroComponent implements OnInit {
 
   constructor(
     private _formBuilder: FormBuilder,
-    private _formCadastroValidator: FormCadastroValidatorService
+    private _formCadastroValidator: FormCadastroValidatorService,
+    private _formCadastroService: FormCadastroService,
+    private _formLoginService: FormLoginService,
+    private _router: Router
   ) { }
 
   ngOnInit() {
@@ -36,7 +43,7 @@ export class FormCadastroComponent implements OnInit {
           Validators.maxLength(50)
         ]
       ],
-      shortName: [
+      userName: [
         '',
         [
           Validators.required,
@@ -61,7 +68,19 @@ export class FormCadastroComponent implements OnInit {
 
     e.preventDefault()
 
-    console.log('cadastrar')
+    const newUser = this.formCadastro.getRawValue() as User
+
+    this._formCadastroService
+      .register(newUser)
+      .subscribe(() => {
+
+        this._formLoginService
+          .login(newUser.userName, newUser.password)
+          .subscribe( () => {
+
+            this._router.navigate([newUser.userName, 'cards'])
+          })
+      })
   }
 
 }

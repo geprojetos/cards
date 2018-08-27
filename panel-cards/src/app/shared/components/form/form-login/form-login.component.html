@@ -12,7 +12,7 @@
   <fieldset>
     <!-- login -->
     <div class="form-group">
-      <label for="shortName">Digite o seu nome para entrar na aplicação:</label>
+      <label for="userName">Digite o seu nome para entrar na aplicação:</label>
 
       <div class="input-group">
         <div class="input-group-prepend">
@@ -23,25 +23,25 @@
         <input 
           type="text" 
           class="form-control" 
-          id="shortName" 
-          name="shortName"
+          id="userName" 
+          name="userName"
           placeholder="Digite o seu nome aqui"
-          formControlName="shortName">
+          formControlName="userName">
         </div>
 
         <!-- mensagens validação -->
         <app-form-message-validate
-          *ngIf="formLogin.get('shortName').errors?.required" 
+          *ngIf="formLogin.get('userName').errors?.required" 
           text="Nome obrigatório">
         </app-form-message-validate>
 
         <app-form-message-validate
-          *ngIf="formLogin.get('shortName').errors?.minlength" 
+          *ngIf="formLogin.get('userName').errors?.minlength" 
           text="O nome deve conter pelo menos 2 caracteres">
         </app-form-message-validate>
 
         <app-form-message-validate
-          *ngIf="formLogin.get('shortName').errors?.maxlength" 
+          *ngIf="formLogin.get('userName').errors?.maxlength" 
           text="O nome deve conter no máximo 15 caracteres">
         </app-form-message-validate>
     </div>
