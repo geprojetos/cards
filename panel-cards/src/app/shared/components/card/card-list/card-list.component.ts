@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CardBase } from '../card-base/card-base';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-card-list',
@@ -7,8 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardListComponent implements OnInit {
 
-  constructor() { }
+  cards: CardBase[] = [];
 
-  ngOnInit() { }
+  constructor(
+    private _activatedRoute: ActivatedRoute
+  ) { }
+
+  ngOnInit() {
+
+    this.cards = this._activatedRoute.snapshot.data['cards']
+    console.log(this.cards)
+  }
 
 }
