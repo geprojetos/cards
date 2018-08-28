@@ -1,3 +1,15 @@
-<p>
-  card-base works!
-</p>
+<section class="card">
+  <figure>
+    <img 
+      class="card-img-top thumbnail" 
+      [src]="url" 
+      [alt]="description"
+      [title]="description">
+  </figure>
+  <figcaption class="card-body">
+    <p class="card-text text-left">
+      {{ description }}
+    </p>
+    <a class="btn btn-outline-info btn-block">Visualizar</a>
+  </figcaption>
+</section>
