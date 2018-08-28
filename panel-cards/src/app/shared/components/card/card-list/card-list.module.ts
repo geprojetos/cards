@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { CardListComponent } from './card-list.component';
 import { CardBaseModule } from '../card-base/card-base.module';
+import { CardListService } from './card-list.service';
 
 @NgModule({
   imports: [
@@ -14,6 +15,9 @@ import { CardBaseModule } from '../card-base/card-base.module';
   ],
   exports: [
     CardListComponent
+  ],
+  providers: [
+    CardListService
   ]
 })
 export class CardListModule { }
