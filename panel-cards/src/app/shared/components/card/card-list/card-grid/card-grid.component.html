@@ -8,6 +8,23 @@
       <app-card-base
         [url]="card.url"
         [description]="card.description">
+
+        <!-- comments -->
+        <div class="mb-3 mt-3 text-center">
+          <div class="d-inline mr-3">
+            <i class="fa fa-heart-o fa-2x" aria-hidden="true"></i>
+            <span class="align-text-bottom">
+                {{ card.likes }}
+            </span>
+          </div>
+
+          <div class="d-inline">
+            <i class="fa fa-comment-o fa-2x" aria-hidden="true"></i>
+            <span class="align-text-bottom">
+                {{ card.comments }}
+            </span>
+          </div>
+        </div>
       </app-card-base>
     </div>
   </li>
