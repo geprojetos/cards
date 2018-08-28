@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 import { Payload } from '../../../interfaces/payload/payload';
 import { ServiceUserService } from '../../../services/service-user/service.user.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header-nav',

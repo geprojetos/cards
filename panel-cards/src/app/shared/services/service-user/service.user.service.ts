@@ -41,4 +41,9 @@ export class ServiceUserService {
     this._tokenService.removeToken()
     this.userSubject.next(null)
   }
+
+  isLogged(): boolean {
+
+    return this._tokenService.hasToken()
+  }
 }

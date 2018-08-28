@@ -46,7 +46,6 @@ export class FormLoginComponent implements OnInit {
   login(e: Event) {
 
     e.preventDefault()
-
     const user = this.formLogin.getRawValue() as User;
 
     this._formLoginService
