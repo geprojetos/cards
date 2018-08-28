@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { CardBaseComponent } from './card-base/card-base.component';
 import { CardListComponent } from './card-list/card-list.component';
+import { CardGridComponent } from './card-list/card-grid/card-grid.component';
 
 @NgModule({
   imports: [
@@ -12,7 +13,8 @@ import { CardListComponent } from './card-list/card-list.component';
   ],
   declarations: [
     CardBaseComponent,
-    CardListComponent
+    CardListComponent,
+    CardGridComponent
   ]
 })
 export class CardModule { }

@@ -5,6 +5,7 @@ import { CardListComponent } from './card-list.component';
 import { CardBaseModule } from '../card-base/card-base.module';
 import { CardListService } from './card-list.service';
 import { CardListResolve } from './card-list.resolve';
+import { CardGridComponent } from './card-grid/card-grid.component';
 
 @NgModule({
   imports: [
@@ -12,10 +13,12 @@ import { CardListResolve } from './card-list.resolve';
     CardBaseModule
   ],
   declarations: [
-    CardListComponent
+    CardListComponent,
+    CardGridComponent
   ],
   exports: [
-    CardListComponent
+    CardListComponent,
+    CardGridComponent
   ],
   providers: [
     CardListService,

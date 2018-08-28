@@ -18,7 +18,6 @@ export class CardListComponent implements OnInit {
   ngOnInit() {
 
     this.cards = this._activatedRoute.snapshot.data['cards']
-    console.log(this.cards)
   }
 
 }
