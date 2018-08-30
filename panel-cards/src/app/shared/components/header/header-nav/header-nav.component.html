@@ -6,7 +6,9 @@
         class="login navbar navbar-expand-lg navbar-light p-0"
         *ngIf="(userObservable | async) as user; else noUser">
         <h1>
-          <a class="text-white" [routerLink]="['']">Cards</a>
+          <a class="text-white" [routerLink]="['']">
+              <i class="fa fa-picture-o" aria-hidden="true"></i>
+          </a>
         </h1>
         <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -34,7 +36,7 @@
         <div  class="d-flex justify-content-between align-items-center">
           <h1 class="m-0">
             <a class="text-white" [routerLink]="['']">
-              Cards
+                <i class="fa fa-picture-o" aria-hidden="true"></i>
             </a>
           </h1>
           <a 
