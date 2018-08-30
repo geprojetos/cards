@@ -1,0 +1,11 @@
+<section 
+  class="text-center mb-5"
+  *ngIf="filter.length && !cards.length">
+  <h1>
+    Não encontramos cards para a pesquisa <span class="font-weight-bold text-info">"{{ filter }}"</span> 
+  </h1>
+  <h3>
+    Realize uma nova busca para encontrar o card desejado
+    <i class="fa fa-smile-o" aria-hidden="true"></i>
+  </h3>
+</section>

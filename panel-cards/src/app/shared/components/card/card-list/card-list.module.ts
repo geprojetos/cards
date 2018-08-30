@@ -8,6 +8,7 @@ import { CardListResolve } from './card-list.resolve';
 import { CardGridComponent } from './card-grid/card-grid.component';
 import { CardSearchModule } from '../card-search/card-search.module';
 import { CardNotRegisteredComponent } from './card-not-registered/card-not-registered.component';
+import { CardNotFoundComponent } from './card-not-found/card-not-found.component';
 
 @NgModule({
   imports: [
@@ -18,11 +19,14 @@ import { CardNotRegisteredComponent } from './card-not-registered/card-not-regis
   declarations: [
     CardListComponent,
     CardGridComponent,
-    CardNotRegisteredComponent
+    CardNotRegisteredComponent,
+    CardNotFoundComponent
   ],
   exports: [
     CardListComponent,
-    CardGridComponent
+    CardGridComponent,
+    CardNotRegisteredComponent,
+    CardNotFoundComponent
   ],
   providers: [
     CardListService,

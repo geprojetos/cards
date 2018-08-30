@@ -14,7 +14,7 @@ export class CardSearchInputPipe implements PipeTransform {
       digitado = digitado.trim().toLowerCase()
 
       return cards.filter( card => card.description.toLowerCase().includes(digitado))
-    } 
+    }
     return cards;
   }
 }
