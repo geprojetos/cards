@@ -7,6 +7,7 @@ import { CardListService } from './card-list.service';
 import { CardListResolve } from './card-list.resolve';
 import { CardGridComponent } from './card-grid/card-grid.component';
 import { CardSearchModule } from '../card-search/card-search.module';
+import { CardNotRegisteredComponent } from './card-not-registered/card-not-registered.component';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { CardSearchModule } from '../card-search/card-search.module';
   ],
   declarations: [
     CardListComponent,
-    CardGridComponent
+    CardGridComponent,
+    CardNotRegisteredComponent
   ],
   exports: [
     CardListComponent,

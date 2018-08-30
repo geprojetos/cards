@@ -6,7 +6,7 @@ import { CardBaseComponent } from './card-base/card-base.component';
 import { CardListComponent } from './card-list/card-list.component';
 import { CardGridComponent } from './card-list/card-grid/card-grid.component';
 import { CardSearchComponent } from './card-search/card-search.component';
-import { CardSearchPipe } from './card-search.pipe';
+import { CardNotRegisteredComponent } from './card-list/card-not-registered/card-not-registered.component';
 
 @NgModule({
   imports: [
@@ -18,7 +18,7 @@ import { CardSearchPipe } from './card-search.pipe';
     CardListComponent,
     CardGridComponent,
     CardSearchComponent,
-    CardSearchPipe
+    CardNotRegisteredComponent
   ]
 })
 export class CardModule { }

@@ -1,3 +1,5 @@
 <app-card-search (typing)="filter = $event"></app-card-search>
 
+<app-card-not-registered [cards]="cards"></app-card-not-registered>
+
 <app-card-grid [cards]="cards | cardSearchInput:filter "></app-card-grid>
