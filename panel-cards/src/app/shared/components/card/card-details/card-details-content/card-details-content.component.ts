@@ -9,7 +9,7 @@ export class CardDetailsContentComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() { console.log('detalhe')
   }
 
 }

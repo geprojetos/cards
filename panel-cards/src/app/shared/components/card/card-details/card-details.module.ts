@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { CardDetailsContentComponent } from './card-details-content/card-details-content.component';
+import { CardDetailsRoutingModule } from './card-details.routing.module';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    CardDetailsRoutingModule
   ],
   declarations: [
     CardDetailsContentComponent
