@@ -10,6 +10,14 @@ const appRoutes: Routes = [
   {
     path: ':userName/cards',
     loadChildren: './pages/list/list.module#ListModule'
+  },
+  {
+    path: '**',
+    redirectTo: 'page-not-found'
+  },
+  {
+    path: 'page-not-found',
+    loadChildren: './pages/not-found/not-found.module#NotFoundModule'
   }
 ]
 
