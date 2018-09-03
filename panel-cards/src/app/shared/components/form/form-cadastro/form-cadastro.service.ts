@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../../../environments/environment';
 
 import { User } from '../../../interfaces/user/user';
 
-const apiCadastro = 'http://localhost:3000';
+const api = environment.api;
 
 @Injectable()
 export class FormCadastroService {
@@ -15,12 +16,12 @@ export class FormCadastroService {
   register(user: User) {
 
     return this._httpClient
-      .post(apiCadastro + '/user/signup', user)
+      .post(api + '/user/signup', user)
   }
 
   checkedShortName(userName: string) {
 
     return this._httpClient
-      .get(apiCadastro + '/user/exists/' + userName)
+      .get(api + '/user/exists/' + userName)
   }
 }
