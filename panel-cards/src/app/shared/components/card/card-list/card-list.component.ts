@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CardBase } from '../card-base/card-base';
 import { ActivatedRoute } from '@angular/router';
+import { User } from '../../../interfaces/user/user';
 
 @Component({
   selector: 'app-card-list',
@@ -18,7 +19,10 @@ export class CardListComponent implements OnInit {
 
   ngOnInit() {
 
-    this.cards = this._activatedRoute.snapshot.data['cards']
+    this._activatedRoute.params.subscribe( (parametro:User) => {
+
+      this.cards = this._activatedRoute.snapshot.data['cards']
+    })
   }
 
 }
