@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 import { CardListComponent } from './card-list.component';
 import { CardBaseModule } from '../card-base/card-base.module';
@@ -14,7 +15,8 @@ import { CardNotFoundComponent } from './card-not-found/card-not-found.component
   imports: [
     CommonModule,
     CardBaseModule,
-    CardSearchModule
+    CardSearchModule,
+    RouterModule
   ],
   declarations: [
     CardListComponent,
