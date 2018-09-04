@@ -6,12 +6,14 @@ import { CardDetailsRoutingModule } from './card-details.routing.module';
 import { CardListService } from '../card-list/card-list.service';
 import { CardBaseModule } from '../card-base/card-base.module';
 import { CardCommentsModule } from '../card-comments/card-comments.module';
+import { DirectivesModule } from '../../../directives/directives.module';
 
 @NgModule({
   imports: [
     CommonModule,
     CardBaseModule,
     CardCommentsModule,
+    DirectivesModule,
     CardDetailsRoutingModule
   ],
   declarations: [
