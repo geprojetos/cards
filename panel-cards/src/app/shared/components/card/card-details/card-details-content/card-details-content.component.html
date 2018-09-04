@@ -1,3 +1,37 @@
-<p>
-  card-details-content works!
-</p>
+<section class="container">
+  
+  <a 
+    class="btn btn-primary mb-3"
+    role="button"
+    href=""
+    (click)="backToPage($event)">
+      Voltar
+  </a>
+
+  <app-card-base
+    [url]="card.url"
+    [description]="card.description">
+
+    <!-- comments -->
+    <app-card-comments
+      [likes]="card.likes"
+      [comments]="card.comments">
+
+      <div>
+        Aqui tera todos os comentarios
+
+        <form >
+          <fieldset>
+            <div class="form-group mb-2">
+              <textarea name="comments" id="comments" class="form-control"></textarea>
+            </div>
+          </fieldset>
+
+          <fieldset>
+              <button type="submit" class="btn btn-info mb-2">Comentar</button>
+          </fieldset>
+          </form>
+      </div>
+    </app-card-comments>
+  </app-card-base>
+</section>

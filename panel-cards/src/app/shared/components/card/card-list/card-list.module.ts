@@ -10,12 +10,14 @@ import { CardGridComponent } from './card-grid/card-grid.component';
 import { CardSearchModule } from '../card-search/card-search.module';
 import { CardNotRegisteredComponent } from './card-not-registered/card-not-registered.component';
 import { CardNotFoundComponent } from './card-not-found/card-not-found.component';
+import { CardCommentsModule } from '../card-comments/card-comments.module';
 
 @NgModule({
   imports: [
     CommonModule,
     CardBaseModule,
     CardSearchModule,
+    CardCommentsModule,
     RouterModule
   ],
   declarations: [
