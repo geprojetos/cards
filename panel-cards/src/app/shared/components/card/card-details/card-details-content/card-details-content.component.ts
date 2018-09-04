@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-card-details-content',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardDetailsContentComponent implements OnInit {
 
-  constructor() { }
+  cardId: number
+  
+  constructor(
+    private _activateRouter: ActivatedRoute
+  ) { }
 
-  ngOnInit() { console.log('detalhe')
+  ngOnInit() { 
+    
+   this.cardId = this._activateRouter.snapshot.params.cardId
+   console.log(this.cardId)
   }
 
 }

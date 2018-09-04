@@ -1,4 +1,5 @@
 import { Component, Input, OnChanges } from '@angular/core';
+
 import { CardBase } from '../../card-base/card-base';
 
 @Component({
