@@ -19,4 +19,10 @@ export class CardListService {
     return this._httpClient
       .get<CardBase[]>(api + '/' + userName + '/photos')
   }
+
+  findCardById(id: number): Observable<CardBase[]> {
+
+    return this._httpClient
+      .get<CardBase[]>(api + '/photos/' + id)
+  }
 }
