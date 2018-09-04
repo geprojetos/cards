@@ -9,6 +9,9 @@ import { IsLoggedDirective } from './is-logged/is-logged.directive';
   ],
   declarations: [
     IsLoggedDirective
+  ],
+  exports: [
+    IsLoggedDirective
   ]
 })
 export class DirectivesModule { }
