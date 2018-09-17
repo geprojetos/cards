@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 
@@ -7,7 +7,7 @@ import { debounceTime } from 'rxjs/operators';
   templateUrl: './card-search.component.html',
   styleUrls: ['./card-search.component.css']
 })
-export class CardSearchComponent implements OnInit {
+export class CardSearchComponent implements OnInit, OnDestroy {
 
   @Output() typing = new EventEmitter()
   debounce: Subject<string> = new Subject()
@@ -19,6 +19,11 @@ export class CardSearchComponent implements OnInit {
     this.debounce
     .pipe(debounceTime(600))
     .subscribe( digitado => this.typing.emit(digitado) )
+  }
+
+  ngOnDestroy() {
+
+    this.debounce.unsubscribe();
   }
 
 }

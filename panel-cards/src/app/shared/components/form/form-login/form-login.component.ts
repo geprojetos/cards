@@ -55,8 +55,7 @@ export class FormLoginComponent implements OnInit {
         this._router.navigate([user.userName, 'cards'])
       }, erro => {
 
-        this.erroLogin = true
-        console.log(erro)
+        this.erroLogin = true;
       })
   }
 }
