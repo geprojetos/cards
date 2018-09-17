@@ -20,15 +20,37 @@
       <div>
         Aqui tera todos os comentarios
 
-        <form appIsLogged>
+        <form 
+          appIsLogged
+          [formGroup]="formComment">
           <fieldset>
             <div class="form-group mb-2">
-              <textarea name="comments" id="comments" class="form-control"></textarea>
+              <textarea 
+                name="comments" 
+                id="comments" 
+                class="form-control"
+                formControlName="comments">
+              </textarea>
+
+              <app-form-message-validate
+                *ngIf="formComment.get('comments').errors?.required"
+                text="O comentário obrigatório">
+              </app-form-message-validate>
+
+              <app-form-message-validate
+                *ngIf="formComment.get('comments').errors?.maxlength"
+                text="O comentário deve conter no máximo 200 caracteres">
+              </app-form-message-validate>
             </div>
           </fieldset>
 
           <fieldset>
-              <button type="submit" class="btn btn-info mb-2">Comentar</button>
+              <button 
+                type="submit" 
+                class="btn btn-info mb-2"
+                [disabled]="formComment.invalid">
+                  Comentar
+              </button>
           </fieldset>
           </form>
       </div>

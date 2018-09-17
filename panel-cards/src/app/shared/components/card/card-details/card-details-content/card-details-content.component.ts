@@ -4,6 +4,7 @@ import { Location } from '@angular/common'
 
 import { CardListService } from '../../card-list/card-list.service';
 import { CardBase } from '../../card-base/card-base';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-card-details-content',
@@ -14,11 +15,13 @@ export class CardDetailsContentComponent implements OnInit {
 
   cardId: number
   card: CardBase[] = []
+  formComment: FormGroup
   
   constructor(
     private _activateRouter: ActivatedRoute,
     private _cardListService: CardListService,
-    private _localtion: Location
+    private _localtion: Location,
+    private _formBuilder: FormBuilder
   ) { }
 
   ngOnInit() { 
@@ -31,6 +34,16 @@ export class CardDetailsContentComponent implements OnInit {
 
       this.card = res
       console.log(res)
+    })
+
+    this.formComment = this._formBuilder.group({
+      comments: [
+        '',
+        [
+          Validators.required,
+          Validators.maxLength(200)
+        ]
+      ]
     })
   }
 
