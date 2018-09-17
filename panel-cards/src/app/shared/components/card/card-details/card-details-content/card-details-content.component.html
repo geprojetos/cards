@@ -18,11 +18,20 @@
       [comments]="card.comments">
 
       <div>
-        Aqui tera todos os comentarios
+        <ul 
+          class="list-unstyled"
+          *ngIf="(commentsObservable | async) as comments">
+          <li>
+            <a class="font-weight-bold">{{ comments.userName }}</a>
+            <em>{{ comments.data | date:'dd-MM-yyyy HH:mm' }}</em>
+            <p>{{ comments.text }}</p>
+          </li>
+        </ul>
 
         <form 
           appIsLogged
-          [formGroup]="formComment">
+          [formGroup]="formComment"
+          (submit)="sendComment($event)">
           <fieldset>
             <div class="form-group mb-2">
               <textarea 
@@ -52,7 +61,7 @@
                   Comentar
               </button>
           </fieldset>
-          </form>
+        </form>
       </div>
     </app-card-comments>
   </app-card-base>

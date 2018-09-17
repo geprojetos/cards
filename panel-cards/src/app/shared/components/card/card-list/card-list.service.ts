@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 import { environment } from '../../../../../environments/environment'
 import { CardBase } from '../card-base/card-base';
+import { CardComments } from '../card-comments/card-comments';
 
 const api = environment.api;
 
@@ -24,5 +25,18 @@ export class CardListService {
 
     return this._httpClient
       .get<CardBase[]>(api + '/photos/' + id)
+  }
+
+  getComments(id: number): Observable<CardComments[]> {
+
+    return this._httpClient.get<CardComments[]>(api + '/photos/' + id + '/comments')
+  }
+
+  addComments(id: number, comment: string) {
+
+    return this._httpClient.post(
+        api + '/photos/' + id + '/comments',
+        { commentText: comment }
+    )
   }
 }
