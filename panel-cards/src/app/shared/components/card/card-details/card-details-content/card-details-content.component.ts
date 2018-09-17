@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common'
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { switchMap, tap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 import { CardListService } from '../../card-list/card-list.service';
 import { CardBase } from '../../card-base/card-base';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Observable } from 'rxjs';
 import { CardComments } from '../../card-comments/card-comments';
-import { switchMap, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-card-details-content',

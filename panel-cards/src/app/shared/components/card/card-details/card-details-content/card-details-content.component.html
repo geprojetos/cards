@@ -21,10 +21,12 @@
         <ul 
           class="list-unstyled"
           *ngIf="(commentsObservable | async) as comments">
-          <li>
-            <a class="font-weight-bold">{{ comments.userName }}</a>
-            <em>{{ comments.data | date:'dd-MM-yyyy HH:mm' }}</em>
-            <p>{{ comments.text }}</p>
+          <li *ngFor="let comentario of comments">
+            <a 
+              class="font-weight-bold"
+              [routerLink]="[ '/', comentario.userName, 'cards']">{{ comentario.userName }}</a>
+            <span>{{ comentario.data | date:'dd-MM-yyyy HH:mm' }}</span>
+            <p>{{ comentario.text }}</p>
           </li>
         </ul>
 
