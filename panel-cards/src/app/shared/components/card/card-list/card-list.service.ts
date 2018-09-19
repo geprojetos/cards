@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 
 import { environment } from '../../../../../environments/environment'
 import { CardBase } from '../card-base/card-base';
 import { CardComments } from '../card-comments/card-comments';
+import { map, catchError } from 'rxjs/operators';
 
 const api = environment.api;
 
@@ -49,5 +50,20 @@ export class CardListService {
         api + '/photos/' + id + '/comments',
         { commentText: comment }
     )
+  }
+
+  like(id: number) {
+
+    return this._httpClient
+      .post(
+        api + '/photos/' + id + '/like',
+        {},
+        { observe: 'response' }
+    )
+    .pipe( map( res => true))
+    .pipe(catchError( erro => {
+
+      return erro.status == '304' ? of(false) : throwError(erro)
+    }))
   }
 }
