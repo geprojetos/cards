@@ -9,6 +9,7 @@ import { Payload } from '../../interfaces/payload/payload';
 export class ServiceUserService {
 
   userSubject = new BehaviorSubject<Payload>(null)
+  userName: string;
 
   constructor(
     private _tokenService: ServiceTokenService
@@ -28,6 +29,7 @@ export class ServiceUserService {
     const token = this._tokenService.getToken()
     const infoToken = jwt_decote(token) as Payload
 
+    this.userName = infoToken.name
     this.userSubject.next(infoToken)
   }
 
@@ -45,5 +47,10 @@ export class ServiceUserService {
   isLogged(): boolean {
 
     return this._tokenService.hasToken()
+  }
+
+  getUserName() {
+
+    return this.userName
   }
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 import { ServiceUserService } from '../../../shared/services/service-user/service.user.service';
@@ -9,7 +9,8 @@ import { ServiceUserService } from '../../../shared/services/service-user/servic
 export class HomeGuard implements CanActivate {
 
   constructor(
-    private _userService: ServiceUserService
+    private _userService: ServiceUserService,
+    private _router: Router
   ) { }
 
   canActivate(
@@ -19,6 +20,7 @@ export class HomeGuard implements CanActivate {
 
     if(this._userService.isLogged()) {
 
+      this._router.navigate([this._userService.getUserName(), 'cards'])
       return false
     }
     return true
