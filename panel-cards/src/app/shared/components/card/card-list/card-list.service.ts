@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { environment } from '../../../../../environments/environment'
@@ -19,6 +19,17 @@ export class CardListService {
 
     return this._httpClient
       .get<CardBase[]>(api + '/' + userName + '/photos')
+  }
+
+  listCardsPagination(userName: string, page: number): Observable<CardBase[]> {
+
+    const params = new HttpParams().append('page', page.toString())
+
+    return this._httpClient
+      .get<CardBase[]>(
+        api + '/' + userName + '/photos', 
+        { params: params }
+      )
   }
 
   findCardById(id: number): Observable<CardBase[]> {
