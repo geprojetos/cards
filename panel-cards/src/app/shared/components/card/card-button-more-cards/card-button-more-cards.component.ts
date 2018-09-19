@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { CardBase } from '../card-base/card-base';
 
 @Component({
   selector: 'app-card-button-more-cards',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardButtonMoreCardsComponent implements OnInit {
 
+  @Input() hasMore: boolean;
+  @Input() cards: CardBase[] = [];
+
   constructor() { }
 
   ngOnInit() {
+
+    if(!this.cards.length) {
+
+      this.hasMore = false
+    } else {
+      
+      this.hasMore = true
+    }
   }
 
 }

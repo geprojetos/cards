@@ -19,6 +19,6 @@ export class CardListResolve implements Resolve<Observable<CardBase[]>> {
 
         const userName = route.params.userName;
         
-        return this._cardListService.listCards(userName)
+        return this._cardListService.listCardsPagination(userName, 1)
     }
 }
