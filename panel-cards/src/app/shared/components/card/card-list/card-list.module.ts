@@ -11,6 +11,7 @@ import { CardSearchModule } from '../card-search/card-search.module';
 import { CardNotRegisteredComponent } from './card-not-registered/card-not-registered.component';
 import { CardNotFoundComponent } from './card-not-found/card-not-found.component';
 import { CardCommentsModule } from '../card-comments/card-comments.module';
+import { CardButtonMoreCardsModule } from '../card-button-more-cards/card-button-more-cards.module';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { CardCommentsModule } from '../card-comments/card-comments.module';
     CardBaseModule,
     CardSearchModule,
     CardCommentsModule,
+    CardButtonMoreCardsModule,
     RouterModule
   ],
   declarations: [
