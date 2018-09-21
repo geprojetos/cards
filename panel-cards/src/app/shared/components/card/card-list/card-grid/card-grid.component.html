@@ -10,10 +10,12 @@
         [description]="card.description">
 
         <!-- comments -->
-        <app-card-comments
-          [likes]="card.likes"
-          [comments]="card.comments">
-        </app-card-comments>
+        <a [routerLink]="['detail', card.id]">
+          <app-card-comments
+            [likes]="card.likes"
+            [comments]="card.comments">
+          </app-card-comments>
+        </a>
 
         <div>
           <a 

@@ -13,58 +13,59 @@
     [description]="card.description">
 
     <!-- comments -->
-    <app-card-comments
-      [likes]="card.likes"
-      [comments]="card.comments">
-
-      <div>
-        <ul 
-          class="list-unstyled"
-          *ngIf="(commentsObservable | async) as comments">
-          <li *ngFor="let comentario of comments">
-            <a 
-              class="font-weight-bold"
-              [routerLink]="[ '/', comentario.userName, 'cards']">{{ comentario.userName }}</a>
-            <span>{{ comentario.data | date:'dd-MM-yyyy HH:mm' }}</span>
-            <p>{{ comentario.text }}</p>
-          </li>
-        </ul>
-
-        <form 
-          appIsLogged
-          [formGroup]="formComment"
-          (submit)="sendComment($event)">
-          <fieldset>
-            <div class="form-group mb-2">
-              <textarea 
-                name="comments" 
-                id="comments" 
-                class="form-control"
-                formControlName="comments">
-              </textarea>
-
-              <app-form-message-validate
-                *ngIf="formComment.get('comments').errors?.required"
-                text="O comentário obrigatório">
-              </app-form-message-validate>
-
-              <app-form-message-validate
-                *ngIf="formComment.get('comments').errors?.maxlength"
-                text="O comentário deve conter no máximo 200 caracteres">
-              </app-form-message-validate>
-            </div>
-          </fieldset>
-
-          <fieldset>
-              <button 
-                type="submit" 
-                class="btn btn-info mb-2"
-                [disabled]="formComment.invalid">
-                  Comentar
-              </button>
-          </fieldset>
-        </form>
-      </div>
-    </app-card-comments>
+      <app-card-comments
+        (acao)="like($event, card)"
+        [likes]="card.likes"
+        [comments]="card.comments">
+  
+        <div>
+          <ul 
+            class="list-unstyled"
+            *ngIf="(commentsObservable | async) as comments">
+            <li *ngFor="let comentario of comments">
+              <a 
+                class="font-weight-bold"
+                [routerLink]="[ '/', comentario.userName, 'cards']">{{ comentario.userName }}</a>
+              <span>{{ comentario.data | date:'dd-MM-yyyy HH:mm' }}</span>
+              <p>{{ comentario.text }}</p>
+            </li>
+          </ul>
+  
+          <form 
+            appIsLogged
+            [formGroup]="formComment"
+            (submit)="sendComment($event)">
+            <fieldset>
+              <div class="form-group mb-2">
+                <textarea 
+                  name="comments" 
+                  id="comments" 
+                  class="form-control"
+                  formControlName="comments">
+                </textarea>
+  
+                <app-form-message-validate
+                  *ngIf="formComment.get('comments').errors?.required"
+                  text="O comentário obrigatório">
+                </app-form-message-validate>
+  
+                <app-form-message-validate
+                  *ngIf="formComment.get('comments').errors?.maxlength"
+                  text="O comentário deve conter no máximo 200 caracteres">
+                </app-form-message-validate>
+              </div>
+            </fieldset>
+  
+            <fieldset>
+                <button 
+                  type="submit" 
+                  class="btn btn-info mb-2"
+                  [disabled]="formComment.invalid">
+                    Comentar
+                </button>
+            </fieldset>
+          </form>
+        </div>
+      </app-card-comments>
   </app-card-base>
 </section>

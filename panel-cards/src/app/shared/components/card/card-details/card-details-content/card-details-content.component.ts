@@ -18,6 +18,7 @@ export class CardDetailsContentComponent implements OnInit {
 
   cardId: number
   card: CardBase[] = []
+  cardObservale: Observable<CardBase[]>
   formComment: FormGroup
   commentsObservable: Observable<CardComments[]>
   
@@ -69,6 +70,21 @@ export class CardDetailsContentComponent implements OnInit {
         this.formComment.reset()
         alert('Comentário realizado com sucesso :)')
       }))
+  }
+
+  like(e: Event, card: CardBase) {
+
+    e.preventDefault()
+
+    this._cardListService
+      .like(card.id)
+      .subscribe( res => {
+
+        if(res) {
+          this.cardObservale = this._cardListService.findCardById(card.id)
+          this.cardObservale.subscribe( res => this.card = res, erro => console.log(erro))
+        }
+      }, erro => console.log(erro))
   }
 
 }

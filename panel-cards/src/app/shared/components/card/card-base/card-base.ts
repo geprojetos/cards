@@ -1,6 +1,6 @@
 export interface CardBase {
 
-    id: string;
+    id: number;
     postDate: Date;
     url: string;
     description: string;
