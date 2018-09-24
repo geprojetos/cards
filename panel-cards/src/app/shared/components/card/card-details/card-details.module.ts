@@ -18,6 +18,7 @@ import { FormMessageValidateModule } from '../../form/form-message-validate/form
     CardCommentsModule,
     DirectivesModule,
     FormMessageValidateModule,
+    DirectivesModule,
     CardDetailsRoutingModule
   ],
   declarations: [

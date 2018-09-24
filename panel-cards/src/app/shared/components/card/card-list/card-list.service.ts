@@ -33,10 +33,10 @@ export class CardListService {
       )
   }
 
-  findCardById(id: number): Observable<CardBase[]> {
+  findCardById(id: number): Observable<CardBase> {
 
     return this._httpClient
-      .get<CardBase[]>(api + '/photos/' + id)
+      .get<CardBase>(api + '/photos/' + id)
   }
 
   getComments(id: number): Observable<CardComments[]> {

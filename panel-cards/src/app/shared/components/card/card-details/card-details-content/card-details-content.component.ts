@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common'
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { switchMap, tap } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 import { CardListService } from '../../card-list/card-list.service';
 import { CardBase } from '../../card-base/card-base';
@@ -17,8 +17,9 @@ import { CardComments } from '../../card-comments/card-comments';
 export class CardDetailsContentComponent implements OnInit {
 
   cardId: number
-  card: CardBase[] = []
-  cardObservale: Observable<CardBase[]>
+  card: CardBase
+  userId = new Subject<number>()
+  cardObservale: Observable<CardBase>
   formComment: FormGroup
   commentsObservable: Observable<CardComments[]>
   
@@ -35,7 +36,10 @@ export class CardDetailsContentComponent implements OnInit {
 
    this._cardListService
     .findCardById(this.cardId)
-    .subscribe( res => this.card = res)
+    .subscribe( res => {
+      this.card = res
+      this.userId.next(res.userId)
+    })
 
     this.formComment = this._formBuilder.group({
       comments: [
