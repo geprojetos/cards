@@ -66,4 +66,9 @@ export class CardListService {
       return erro.status == '304' ? of(false) : throwError(erro)
     }))
   }
+
+  removeCard(id: number) {
+
+    return this._httpClient.delete(api + '/photos/' + id)
+  }
 }
