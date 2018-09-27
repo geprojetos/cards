@@ -1,4 +1,6 @@
-<form class="row">
+<form 
+  class="row"
+  [formGroup]="formAddCard">
   <fieldset class="col-sm-12 col-lg-6">
     <div class="form-group">
         <label for="photo" class="btn-block">
@@ -20,7 +22,13 @@
           name="photo" 
           id="photo" 
           class="form-control" 
-          accept="image/*">
+          accept="image/*"
+          formControlName="photo">
+
+        <app-form-message-validate
+          *ngIf="formAddCard.get('photo').errors?.required"
+          text="Imagem obrigatória">
+        </app-form-message-validate>
     </div>
   </fieldset>
   
@@ -34,8 +42,19 @@
       <textarea 
         name="description" 
         id="description" 
-        class="form-control">
+        class="form-control"
+        formControlName="description">
       </textarea>
+
+      <app-form-message-validate
+        *ngIf="formAddCard.get('description').errors?.required"
+        text="Descrição obrigatória">
+      </app-form-message-validate>
+
+      <app-form-message-validate
+        *ngIf="formAddCard.get('description').errors?.maxlength"
+        text="A descrição não deve conter mais de 50 caracteres">
+      </app-form-message-validate>
     </div>
 
     <div class="form-group">
@@ -48,7 +67,12 @@
     </div>
 
     <div class="form-group">
-      <button type="submit" class="btn btn-info btn-block">Gravar</button>
+      <button 
+        type="submit" 
+        class="btn btn-info btn-block"
+        [disabled]="formAddCard.invalid">
+          Gravar
+        </button>
     </div>
 
   </fieldset>
