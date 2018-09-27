@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-card-add-content',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardAddContentComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private _location: Location
+  ) { }
 
   ngOnInit() {
+  }
+
+  backToPage(e: Event) {
+
+    e.preventDefault()
+    this._location.back()
   }
 
 }
