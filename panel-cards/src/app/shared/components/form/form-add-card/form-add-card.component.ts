@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { CardListService } from '../../card/card-list/card-list.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-add-card',
@@ -13,7 +15,9 @@ export class FormAddCardComponent implements OnInit {
   preview: string;
 
   constructor(
-    private _formBuilder: FormBuilder
+    private _cardListService: CardListService,
+    private _formBuilder: FormBuilder,
+    private _router: Router
   ) { }
 
   ngOnInit() {
@@ -26,7 +30,6 @@ export class FormAddCardComponent implements OnInit {
           Validators.required
         ]
       ],
-
       description: [
         '',
         [
@@ -44,6 +47,27 @@ export class FormAddCardComponent implements OnInit {
     const reader = new FileReader()
     reader.onload = (event: any) => this.preview = event.target.result
     reader.readAsDataURL(file)
+  }
+
+  upload(e: Event) {
+
+    e.preventDefault();
+
+    const photo = this.file
+    const descritpion = this.formAddCard.get('description').value
+    const comments = this.formAddCard.get('comments').value
+
+    console.log(photo)
+    console.log(descritpion)
+    console.log(comments)
+
+    this._cardListService
+      .upload(photo, descritpion, comments)
+      .subscribe( 
+          () => this._router.navigate(['']),
+          erro => console.log(erro) 
+        )
+
   }
 
 }

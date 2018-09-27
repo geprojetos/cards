@@ -1,6 +1,7 @@
 <form 
   class="row"
-  [formGroup]="formAddCard">
+  [formGroup]="formAddCard"
+  (submit)="upload($event)">
   <fieldset class="col-sm-12 col-lg-6">
     <div class="form-group">
         <label for="photo" class="btn-block">

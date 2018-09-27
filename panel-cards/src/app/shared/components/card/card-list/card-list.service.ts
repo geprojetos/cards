@@ -67,6 +67,18 @@ export class CardListService {
     }))
   }
 
+  upload(file: File, description: string, comments: boolean): Observable<Object> {
+
+    const formData = new FormData();
+
+    formData.append('imageFile', file)
+    formData.append('description', description)
+    formData.append('allowComments',  comments ? 'true' : 'false')
+
+    return this._httpClient
+      .post(api + '/photos/upload', formData)
+  }
+
   removeCard(id: number) {
 
     return this._httpClient.delete(api + '/photos/' + id)
