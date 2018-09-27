@@ -8,7 +8,9 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class FormAddCardComponent implements OnInit {
 
-  formAddCard: FormGroup;
+  formAddCard: FormGroup
+  file: File
+  preview: string;
 
   constructor(
     private _formBuilder: FormBuilder
@@ -31,8 +33,17 @@ export class FormAddCardComponent implements OnInit {
           Validators.required,
           Validators.maxLength(50)
         ]
-      ]
+      ],
+      comments: [true]
     })
+  }
+
+  fileEvent(file: File) {
+
+    this.file = file;
+    const reader = new FileReader()
+    reader.onload = (event: any) => this.preview = event.target.result
+    reader.readAsDataURL(file)
   }
 
 }
