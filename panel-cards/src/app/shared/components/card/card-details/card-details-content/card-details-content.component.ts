@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common'
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { switchMap, tap } from 'rxjs/operators';
@@ -27,7 +27,8 @@ export class CardDetailsContentComponent implements OnInit {
     private _activateRouter: ActivatedRoute,
     private _cardListService: CardListService,
     private _localtion: Location,
-    private _formBuilder: FormBuilder
+    private _formBuilder: FormBuilder,
+    private _router: Router
   ) { }
 
   ngOnInit() { 
@@ -72,7 +73,6 @@ export class CardDetailsContentComponent implements OnInit {
       .pipe(tap( () => {
         
         this.formComment.reset()
-        alert('Comentário realizado com sucesso :)')
       }))
   }
 
@@ -89,6 +89,23 @@ export class CardDetailsContentComponent implements OnInit {
           this.cardObservale.subscribe( res => this.card = res, erro => console.log(erro))
         }
       }, erro => console.log(erro))
+  }
+
+  delete(e: Event, card: CardBase) {
+
+    e.preventDefault()
+
+    if(confirm("Deseja remover esse card?")) {
+
+      this._cardListService
+        .removeCard(card.id)
+        .subscribe( () => {
+            
+          alert('Card Removido com sucesso')
+          this._router.navigate([''])
+        }, erro => console.log(erro))
+    }
+    return
   }
 
 }

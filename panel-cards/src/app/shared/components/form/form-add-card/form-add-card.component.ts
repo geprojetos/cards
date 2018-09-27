@@ -57,16 +57,13 @@ export class FormAddCardComponent implements OnInit {
     const descritpion = this.formAddCard.get('description').value
     const comments = this.formAddCard.get('comments').value
 
-    console.log(photo)
-    console.log(descritpion)
-    console.log(comments)
-
     this._cardListService
       .upload(photo, descritpion, comments)
-      .subscribe( 
-          () => this._router.navigate(['']),
-          erro => console.log(erro) 
-        )
+      .subscribe( () => {
+
+        alert("Card adicionado com sucesso")
+        this._router.navigate([''])
+      }, erro => console.log(erro))
 
   }
 

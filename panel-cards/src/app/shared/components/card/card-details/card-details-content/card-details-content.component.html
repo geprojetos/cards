@@ -23,7 +23,7 @@
           appIsOwner
           [userIdObservable]="userId">
           <div class="col text-right pl-0">
-            <i class="fa fa-trash-o fa-2x text-danger" aria-hidden="true"></i>
+            <i class="fa fa-trash-o fa-2x text-danger" aria-hidden="true" (click)="delete($event, card)"></i>
           </div>
         </div>
   
