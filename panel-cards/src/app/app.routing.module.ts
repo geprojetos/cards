@@ -12,6 +12,10 @@ const appRoutes: Routes = [
     loadChildren: './pages/list/list.module#ListModule'
   },
   {
+    path: ':userName/cards/add',
+    loadChildren: './shared/components/card/card-add/card-add.module#CardAddModule'
+  },
+  {
     path: ':userName/cards/detail/:cardId',
     loadChildren: './shared/components/card/card-details/card-details.module#CardDetailsModule'
   },
