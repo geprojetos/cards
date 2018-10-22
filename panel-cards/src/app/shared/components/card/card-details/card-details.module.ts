@@ -9,6 +9,7 @@ import { CardBaseModule } from '../card-base/card-base.module';
 import { CardCommentsModule } from '../card-comments/card-comments.module';
 import { DirectivesModule } from '../../../directives/directives.module';
 import { FormMessageValidateModule } from '../../form/form-message-validate/form-message-validate.module';
+import { ModalModule } from '../../modal/modal.module';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { FormMessageValidateModule } from '../../form/form-message-validate/form
     DirectivesModule,
     FormMessageValidateModule,
     DirectivesModule,
+    ModalModule,
     CardDetailsRoutingModule
   ],
   declarations: [

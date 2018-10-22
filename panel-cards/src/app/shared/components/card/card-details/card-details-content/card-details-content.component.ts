@@ -22,6 +22,7 @@ export class CardDetailsContentComponent implements OnInit {
   cardObservale: Observable<CardBase>
   formComment: FormGroup
   commentsObservable: Observable<CardComments[]>
+  modal: boolean = true;
   
   constructor(
     private _activateRouter: ActivatedRoute,
