@@ -2,8 +2,11 @@
 
   <app-modal 
     [modal]="modal"
-    title="Título modal"
-    text="Texto do modal">
+    [title]="titleModal"
+    [text]="textModal"
+    [closeButton]="false"
+    [confirmButton]="true"
+    confirmChange = "true">
   </app-modal>
 
   <a 

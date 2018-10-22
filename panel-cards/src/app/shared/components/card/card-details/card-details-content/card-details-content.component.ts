@@ -22,7 +22,10 @@ export class CardDetailsContentComponent implements OnInit {
   cardObservale: Observable<CardBase>
   formComment: FormGroup
   commentsObservable: Observable<CardComments[]>
-  modal: boolean = true;
+  modal: boolean = false;
+  titleModal: string;
+  textModal: string;
+  confirmChange: boolean;
   
   constructor(
     private _activateRouter: ActivatedRoute,
@@ -96,17 +99,28 @@ export class CardDetailsContentComponent implements OnInit {
 
     e.preventDefault()
 
-    if(confirm("Deseja remover esse card?")) {
+    // if(confirm("Deseja remover esse card?")) {
 
-      this._cardListService
-        .removeCard(card.id)
-        .subscribe( () => {
+    //   this._cardListService
+    //     .removeCard(card.id)
+    //     .subscribe( () => {
             
-          alert('Card Removido com sucesso')
-          this._router.navigate([''])
-        }, erro => console.log(erro))
-    }
+    //       alert('Card Removido com sucesso')
+    //       this._router.navigate([''])
+    //     }, erro => console.log(erro))
+    // }
+
+    this.modal = true;
+    this.titleModal = "Deseja confirmar essa operação?";
+
+    console.log('Revebi :) ' + this.confirmChange)
     return
   }
+  
+  // confirmChange(e) {
+
+  //   console.log(e)
+  //   console.log('Recebi pelo filho ' + e);
+  // }
 
 }
