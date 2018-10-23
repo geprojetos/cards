@@ -14,6 +14,13 @@ export class FormAddCardComponent implements OnInit {
   file: File
   preview: string;
 
+  modal: boolean = false;
+  titleModal: string;
+  textModal: string;
+  confirmButton: boolean = true;
+  redirectButton: boolean;
+  dangerButton: boolean;
+
   constructor(
     private _cardListService: CardListService,
     private _formBuilder: FormBuilder,
@@ -53,18 +60,52 @@ export class FormAddCardComponent implements OnInit {
 
     e.preventDefault();
 
-    const photo = this.file
-    const descritpion = this.formAddCard.get('description').value
-    const comments = this.formAddCard.get('comments').value
+    this.modal = !this.modal;
+    this.titleModal = "Deseja cadastrar esse card?";
+    this.textModal = "Confirme para cadastrar, deseja continuar?";
+    this.confirmButton = true;
+    this.redirectButton = false;
+    this.dangerButton = false;
+    this.ok;
 
-    this._cardListService
-      .upload(photo, descritpion, comments)
-      .subscribe( () => {
+  }
 
-        alert("Card adicionado com sucesso")
-        this._router.navigate([''])
-      }, erro => console.log(erro))
+  ok(e) {
 
+    if(e) {
+      
+      
+      const photo = this.file
+      const descritpion = this.formAddCard.get('description').value
+      const comments = this.formAddCard.get('comments').value
+
+      this._cardListService
+        .upload(photo, descritpion, comments)
+        .subscribe( () => {
+
+          this.confirmButton = false;
+          this.redirectButton = true;
+          this.dangerButton = false;
+          this.titleModal = "Card cadastrado com sucesso";
+          this.textModal = "O card foi cadastro e já está disponível em sua lista de cards";
+          
+        }, erro => {
+
+          console.log(erro);
+          this.confirmButton = false;
+          this.redirectButton = false;
+          this.dangerButton = true;
+          this.titleModal = "Algo não está funcionado!";
+          this.textModal = "Não foi possível cadastrar no card, tente novamente!";
+        })
+    }
+  }
+
+  redir(e) {
+    
+    if(e) {
+      this._router.navigate([''])
+    }
   }
 
 }

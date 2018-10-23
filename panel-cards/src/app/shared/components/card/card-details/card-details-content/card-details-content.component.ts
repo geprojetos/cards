@@ -105,7 +105,7 @@ export class CardDetailsContentComponent implements OnInit {
 
     this.modal = !this.modal;
     this.titleModal = "Deseja remover esse card?";
-    this.textModal = "Depois de remover o card não poderá ser recuperado!";
+    this.textModal = "Depois de remover o card não poderá ser recuperado, deseja continuar mesmo assim?";
     this.confirmButton = true;
     this.redirectButton = !this.confirmButton;
     this.dangerButton = !this.confirmButton;

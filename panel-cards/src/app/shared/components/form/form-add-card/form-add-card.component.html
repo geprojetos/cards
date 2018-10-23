@@ -1,3 +1,14 @@
+<app-modal
+  [modal]="modal"
+  [title]="titleModal"
+  [text]="textModal"
+  [confirmButton]="confirmButton"
+  [redirectButton]="redirectButton"
+  [dangerButton]="dangerButton"
+  (ok)="ok($event)"
+  (redir)="redir($event)">
+</app-modal>
+
 <form 
   class="row"
   [formGroup]="formAddCard"
