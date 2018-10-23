@@ -4,9 +4,11 @@
     [modal]="modal"
     [title]="titleModal"
     [text]="textModal"
-    [closeButton]="false"
-    [confirmButton]="true"
-    confirmChange = "true">
+    [confirmButton]="confirmButton"
+    [redirectButton]="redirectButton"
+    [dangerButton]="dangerButton"
+    (ok)="ok($event)"
+    (redir)="redir($event)">
   </app-modal>
 
   <a 

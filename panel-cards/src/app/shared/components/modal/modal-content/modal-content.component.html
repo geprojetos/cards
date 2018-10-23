@@ -1,18 +1,18 @@
 
   <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary" data-toggle="modal" (click)="closeModal()">
+  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" (click)="closeModal()">
     Open modal
-  </button>
+  </button> -->
   
   <!-- Modal -->
   <div *ngIf="modal" class="modal myModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header {{type}}">
           <h5 class="modal-title" >
             {{ title }}
           </h5>
-          <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+          <button type="button" class="close text-white" aria-label="Close" (click)="closeModal()">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
@@ -24,7 +24,22 @@
             <button type="button" class="btn btn-success mr-2" (click)="confirmChange()">Sim</button>
             <button type="button" class="btn btn-danger" (click)="closeModal()">Não</button>
           </div>
-          <button *ngIf="closeButton" type="button" class="btn btn-primary" (click)="closeModal()">Close</button>
+
+          <div *ngIf="successButton">
+            <button type="button" class="btn btn-success" (click)="closeModal()">Fechar</button>
+          </div>
+
+          <div *ngIf="infoButton">
+              <button type="button" class="btn btn-info" (click)="closeModal()">Fechar</button>
+          </div>
+
+          <div *ngIf="dangerButton">
+              <button type="button" class="btn btn-danger" (click)="closeModal()">Fechar</button>
+          </div>
+
+          <div *ngIf="redirectButton">
+              <button type="button" class="btn btn-success" (click)="redirectRoute()">Fechar</button>
+          </div>
         </div>
       </div>
     </div>

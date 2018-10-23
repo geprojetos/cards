@@ -20,12 +20,16 @@ export class CardDetailsContentComponent implements OnInit {
   card: CardBase
   userId = new Subject<number>()
   cardObservale: Observable<CardBase>
+
   formComment: FormGroup
   commentsObservable: Observable<CardComments[]>
+
   modal: boolean = false;
-  titleModal: string;
-  textModal: string;
-  confirmChange: boolean;
+  titleModal: string = '';
+  textModal: string = '';
+  confirmButton: boolean = true;
+  redirectButton: boolean;
+  dangerButton: boolean;
   
   constructor(
     private _activateRouter: ActivatedRoute,
@@ -99,28 +103,49 @@ export class CardDetailsContentComponent implements OnInit {
 
     e.preventDefault()
 
-    // if(confirm("Deseja remover esse card?")) {
-
-    //   this._cardListService
-    //     .removeCard(card.id)
-    //     .subscribe( () => {
-            
-    //       alert('Card Removido com sucesso')
-    //       this._router.navigate([''])
-    //     }, erro => console.log(erro))
-    // }
-
-    this.modal = true;
-    this.titleModal = "Deseja confirmar essa operação?";
-
-    console.log('Revebi :) ' + this.confirmChange)
+    this.modal = !this.modal;
+    this.titleModal = "Deseja remover esse card?";
+    this.textModal = "Depois de remover o card não poderá ser recuperado!";
+    this.confirmButton = true;
+    this.redirectButton = !this.confirmButton;
+    this.dangerButton = !this.confirmButton;
+    this.ok
+    
     return
   }
   
-  // confirmChange(e) {
+  ok(e) {
 
-  //   console.log(e)
-  //   console.log('Recebi pelo filho ' + e);
-  // }
+    if(e) {
+      
+      this._cardListService
+      .removeCard(this.cardId)
+      .subscribe( () => {
+        
+        this.titleModal = 'Card removido';
+        this.textModal = "O card foi removido com sucesso";
+        this.confirmButton = !this.confirmButton;
+        this.redirectButton = !this.confirmButton;
+            
+          }, erro => {
+
+            console.log(erro)
+
+            this.confirmButton = !this.confirmButton;
+            this.dangerButton = !this.confirmButton;
+            this.titleModal = 'Algo não está funcionando';
+            this.textModal = "Não foi possível remover o card, tente novamente"
+          })
+    }
+  }
+
+  redir(e) {
+
+    if(e) {
+      
+      this._router.navigate([''])
+    }
+  }
+  
 
 }
