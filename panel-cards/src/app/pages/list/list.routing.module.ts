@@ -11,6 +11,9 @@ const listRoutes: Routes = [
         component: ListCardsComponent,
         resolve: {
             cards: CardListResolve
+        },
+        data: {
+            title: 'Lista de Cards'
         }
     }
 ]

@@ -7,7 +7,10 @@ const cardDetailsRoutes: Routes = [
 
     {
         path: '',
-        component: CardDetailsContentComponent
+        component: CardDetailsContentComponent,
+        data: {
+            title: 'Detalhes do Card'
+        }
     }
 ]
 

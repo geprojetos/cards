@@ -7,7 +7,10 @@ const notFoundRoutes: Routes = [
 
     {
         path: '',
-        component: NotFoundContentComponent
+        component: NotFoundContentComponent,
+        data: {
+            title: 'Página não Encontrada'
+        }
     }
 ]
 

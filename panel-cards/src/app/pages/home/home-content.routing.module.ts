@@ -18,11 +18,17 @@ const homeContentRoutes: Routes = [
         children: [
             {
                 path: '',
-                component: FormLoginComponent
+                component: FormLoginComponent,
+                data: {
+                    title: 'Login'
+                }
             },
             {
                 path: 'user/new',
-                component: FormCadastroComponent
+                component: FormCadastroComponent,
+                data: {
+                    title: 'Cadastro'
+                }
             }
         ]
     }
