@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { LoadingContentComponent } from './loading-content/loading-content.component';
 import { LoadingService } from './loading-service/loading.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoadingInterceptor } from './loading-content/loading-interceptor';
 
 @NgModule({
   imports: [
@@ -10,6 +12,13 @@ import { LoadingService } from './loading-service/loading.service';
   ],
   declarations: [LoadingContentComponent],
   exports: [LoadingContentComponent],
-  providers: [LoadingService]
+  providers: [
+    LoadingService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoadingInterceptor,
+      multi: true
+    }
+  ]
 })
 export class LoadingModule { }

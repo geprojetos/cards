@@ -5,7 +5,7 @@ import { tap } from 'rxjs/operators';
 
 import { LoadingService } from '../loading-service/loading.service';
 
-@Injectable({ providedIn: 'root' })
+@Injectable()
 export class LoadingInterceptor implements HttpInterceptor {
 
     constructor(
