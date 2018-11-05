@@ -6,10 +6,12 @@ import { RouterModule } from '@angular/router';
 import { HeaderNavComponent } from './header-nav/header-nav.component';
 import { ServiceUserService } from '../../services/service-user/service.user.service';
 import { ServiceTokenService } from '../../services/service-token/service-token.service';
+import { LoadingModule } from '../loading/loading.module';
 
 @NgModule({
   imports: [
     CommonModule,
+    LoadingModule,
     HttpClientModule,
     RouterModule
   ],
