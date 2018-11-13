@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { HeaderMenuComponent } from './header-menu.component';
 import { MenuListComponent } from './menu-list/menu-list.component';
 import { MenuInfoUserComponent } from './menu-info-user/menu-info-user.component';
+import { MenuItemsComponent } from './menu-items/menu-items.component';
 
 @NgModule({
   imports: [
@@ -14,12 +15,14 @@ import { MenuInfoUserComponent } from './menu-info-user/menu-info-user.component
   declarations: [
     HeaderMenuComponent,
     MenuListComponent,
-    MenuInfoUserComponent
+    MenuInfoUserComponent,
+    MenuItemsComponent
   ],
   exports: [
     HeaderMenuComponent,
     MenuListComponent,
-    MenuInfoUserComponent
+    MenuInfoUserComponent,
+    MenuItemsComponent
   ]
 })
 export class HeaderMenuModule { }

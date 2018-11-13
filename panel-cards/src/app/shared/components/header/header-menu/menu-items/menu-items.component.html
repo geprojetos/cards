@@ -1,0 +1,21 @@
+<nav>
+  <ul 
+    class="list-unstyled mt-3"
+    *ngIf="(user$ | async) as user">
+    <li class="nav-item">
+      <a 
+        class="text-white nav-link"
+        [routerLink]="[user.name, 'cards']">
+        Meus cards
+      </a>
+    </li>
+    
+    <li class="nav-item">
+      <a 
+        class="text-white nav-link"
+        [routerLink]="[user.name, 'cards','add']">
+        Cadastrar
+      </a>
+    </li>
+  </ul>
+</nav>

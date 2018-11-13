@@ -4,59 +4,13 @@
 
     <nav class="container pt-3 pb-3">
       <section class="row align-middle">
-        <div class="col-sm-6 text-left">
+        <div class="col-6 text-left">
           <app-header-title></app-header-title>
         </div>
 
-        <div class="col-sm-6 text-right">
+        <div class="col-6 text-right">
             <app-header-menu></app-header-menu>
         </div>
       </section>
-      <!-- login -->
-      <!-- <div 
-        class="login navbar navbar-expand-lg navbar-light p-0"
-        *ngIf="(userObservable | async) as user; else noUser">
-        <h1>
-          <a class="text-white" [routerLink]="['']">
-              <i class="fa fa-picture-o" aria-hidden="true"></i>
-          </a>
-        </h1>
-        <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav col-12 p-0 d-flex justify-content-end">
-            <li class="text-white order-lg-12 text-center">
-              <i class="fa fa-user-circle fa-2x align-middle pr-1" aria-hidden="true"></i>
-              <span class="pr-1 text-capitalize">{{ user.name }}</span>
-              <small>
-                <a (click)="logout($event)">
-                  Sair
-                </a>
-              </small>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link text-white" [routerLink]="[user.name, 'cards']">Cards</a>
-            </li>
-          </ul>
-        </div>
-      </div> -->
-
-      <!-- logout -->
-      <!-- <ng-template #noUser>
-        <div  class="d-flex justify-content-between align-items-center">
-          <h1 class="m-0">
-            <a class="text-white" [routerLink]="['']">
-                <i class="fa fa-picture-o" aria-hidden="true"></i>
-            </a>
-          </h1>
-          <a 
-            class="text-white"
-            [routerLink]="['']">
-            <i class="fa fa-user-circle fa-2x align-middle pr-1" aria-hidden="true"></i>
-            Login
-          </a>
-        </div>
-      </ng-template> -->
     </nav>
 </header>

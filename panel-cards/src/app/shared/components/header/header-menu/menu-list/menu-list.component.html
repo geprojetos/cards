@@ -1,8 +1,10 @@
 <section [ngClass]="{'active': visible}">
-  <div class="menu-list bg-info p-3">
+  <div class="menu-list bg-info">
     <app-menu-info-user>
       <i class="fa fa-times-circle fa-2x text-white" aria-hidden="true" (click)="toggle()"></i>
     </app-menu-info-user>
+
+    <app-menu-items></app-menu-items>
   </div>
 
   <div class="menu-list-overlay" (click)="toggle()"></div>

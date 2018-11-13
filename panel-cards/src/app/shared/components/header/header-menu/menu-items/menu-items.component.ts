@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 import { Payload } from 'src/app/shared/interfaces/payload/payload';
 import { ServiceUserService } from 'src/app/shared/services/service-user/service.user.service';
-import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-menu-info-user',
-  templateUrl: './menu-info-user.component.html',
-  styleUrls: ['./menu-info-user.component.css']
+  selector: 'app-menu-items',
+  templateUrl: './menu-items.component.html',
+  styleUrls: ['./menu-items.component.css']
 })
-export class MenuInfoUserComponent implements OnInit {
+export class MenuItemsComponent implements OnInit {
 
   user$: Observable<Payload>;
 
@@ -21,14 +21,6 @@ export class MenuInfoUserComponent implements OnInit {
 
   ngOnInit() {
     this.user$ = this._userService.getUserPayload();
-  }
-
-  logout(e:Event) {
-
-    e.preventDefault()
-
-    this._userService.logout();
-    this._router.navigate([''])
   }
 
 }

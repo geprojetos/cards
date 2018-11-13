@@ -1,0 +1,8 @@
+@media(min-width: 992px) {
+
+    nav .nav-link:hover {
+        background: #fff;
+        color: #17a2b8 !important;
+        transition: all .5s ease-in-out;
+    }
+}
