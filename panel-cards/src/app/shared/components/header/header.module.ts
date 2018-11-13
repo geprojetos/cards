@@ -8,27 +8,23 @@ import { ServiceUserService } from '../../services/service-user/service.user.ser
 import { ServiceTokenService } from '../../services/service-token/service-token.service';
 import { LoadingModule } from '../loading/loading.module';
 import { HeaderTitleComponent } from './header-title/header-title.component';
-import { HeaderMenuComponent } from './header-menu/header-menu.component';
-import { MenuListComponent } from './header-menu/menu-list/menu-list.component';
+import { HeaderMenuModule } from './header-menu/header-menu.module';
 
 @NgModule({
   imports: [
     CommonModule,
     LoadingModule,
     HttpClientModule,
+    HeaderMenuModule,
     RouterModule
   ],
   declarations: [
     HeaderNavComponent,
     HeaderTitleComponent,
-    HeaderMenuComponent,
-    MenuListComponent
   ],
   exports: [
     HeaderNavComponent,
     HeaderTitleComponent,
-    HeaderMenuComponent,
-    MenuListComponent
   ],
   providers: [
     ServiceTokenService,
