@@ -14,20 +14,7 @@ export class HeaderNavComponent implements OnInit {
 
   userObservable: Observable<Payload>;
 
-  constructor(
-    private _userService: ServiceUserService,
-    private _router: Router
-  ) {
-
-    this.userObservable = this._userService.getUserPayload()
-  }
+  constructor() {}
 
   ngOnInit() {}
-
-  logout(e:Event) {
-
-    e.preventDefault()
-    this._userService.logout()
-    this._router.navigate([''])
-  }
 }

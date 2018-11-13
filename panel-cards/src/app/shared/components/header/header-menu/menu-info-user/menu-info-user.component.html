@@ -1,8 +1,10 @@
 <nav class="row">
-  <ul class="list-unstyled col-sm-8">
+  <ul 
+    class="list-unstyled col-sm-8"
+    *ngIf="(user$ | async) as user; else noUser">
       <li class="text-white order-lg-12 text-left">
         <i class="fa fa-user-circle fa-2x align-middle pr-1" aria-hidden="true"></i>
-        <span class="pr-1 text-capitalize">Teste</span>
+        <span class="pr-1 text-capitalize">{{ user.name }}</span>
         <small>
           <a (click)="logout($event)">
             Sair
@@ -10,6 +12,17 @@
         </small>
       </li>
   </ul>
+
+  <ng-template #noUser>
+    <section class="col-sm-8 text-left">
+      <a 
+        class="text-white"
+        [routerLink]="['']">
+        <i class="fa fa-user-circle fa-2x align-middle pr-1" aria-hidden="true"></i>
+        Fazer login
+      </a>
+    </section>
+  </ng-template>
 
   <span class="col-sm-4">
     <i class="fa fa-times-circle fa-2x text-white" aria-hidden="true"></i>
