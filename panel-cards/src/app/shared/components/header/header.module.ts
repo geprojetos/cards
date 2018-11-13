@@ -7,6 +7,7 @@ import { HeaderNavComponent } from './header-nav/header-nav.component';
 import { ServiceUserService } from '../../services/service-user/service.user.service';
 import { ServiceTokenService } from '../../services/service-token/service-token.service';
 import { LoadingModule } from '../loading/loading.module';
+import { HeaderTitleComponent } from './header-title/header-title.component';
 
 @NgModule({
   imports: [
@@ -16,10 +17,12 @@ import { LoadingModule } from '../loading/loading.module';
     RouterModule
   ],
   declarations: [
-    HeaderNavComponent
+    HeaderNavComponent,
+    HeaderTitleComponent
   ],
   exports: [
-    HeaderNavComponent
+    HeaderNavComponent,
+    HeaderTitleComponent
   ],
   providers: [
     ServiceTokenService,

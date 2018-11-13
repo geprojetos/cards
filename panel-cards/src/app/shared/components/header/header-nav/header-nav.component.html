@@ -1,10 +1,13 @@
 <header class="bg-info fixed-top">
   <ap-loading></ap-loading>
-  
-  <div class="container">
-    <nav class="pt-3 pb-3">
+    <nav class="container pt-3 pb-3">
+      <div class="row">
+        <div class="col-sm-6">
+          <app-header-title></app-header-title>
+        </div>
+      </div>
       <!-- login -->
-      <div 
+      <!-- <div 
         class="login navbar navbar-expand-lg navbar-light p-0"
         *ngIf="(userObservable | async) as user; else noUser">
         <h1>
@@ -31,10 +34,10 @@
             </li>
           </ul>
         </div>
-      </div>
+      </div> -->
 
       <!-- logout -->
-      <ng-template #noUser>
+      <!-- <ng-template #noUser>
         <div  class="d-flex justify-content-between align-items-center">
           <h1 class="m-0">
             <a class="text-white" [routerLink]="['']">
@@ -48,7 +51,6 @@
             Login
           </a>
         </div>
-      </ng-template>
+      </ng-template> -->
     </nav>
-  </div>
 </header>
