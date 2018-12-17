@@ -32,17 +32,17 @@
 
         <!-- mensagens validação -->
         <app-form-message-validate
-          *ngIf="formLogin.get('userName').errors?.required && form.submitted" 
+          *ngIf="formLogin.get('userName').errors?.required && (form.submitted || formLogin.get('userName').touched)" 
           text="Nome obrigatório">
         </app-form-message-validate>
 
         <app-form-message-validate
-          *ngIf="formLogin.get('userName').errors?.minlength && form.submitted" 
+          *ngIf="formLogin.get('userName').errors?.minlength && (form.submitted || formLogin.get('userName').touched)" 
           text="O nome deve conter pelo menos 2 caracteres">
         </app-form-message-validate>
 
         <app-form-message-validate
-          *ngIf="formLogin.get('userName').errors?.maxlength && form.submitted" 
+          *ngIf="formLogin.get('userName').errors?.maxlength && (form.submitted || formLogin.get('userName').touched)" 
           text="O nome deve conter no máximo 15 caracteres">
         </app-form-message-validate>
     </div>
@@ -68,17 +68,17 @@
 
       <!-- mensagens validação -->
       <app-form-message-validate
-        *ngIf="formLogin.get('password').errors?.required && form.submitted" 
+        *ngIf="formLogin.get('password').errors?.required && (form.submitted || formLogin.get('password').touched)" 
         text="Senha obrigatória">
       </app-form-message-validate>
 
       <app-form-message-validate
-        *ngIf="formLogin.get('password').errors?.minlength && form.submitted" 
+        *ngIf="formLogin.get('password').errors?.minlength && (form.submitted || formLogin.get('password').touched)" 
         text="A senha deve conter no mínimo 3 caracteres">
       </app-form-message-validate>
 
       <app-form-message-validate
-        *ngIf="formLogin.get('password').errors?.maxlength && form.submitted" 
+        *ngIf="formLogin.get('password').errors?.maxlength && (form.submitted || formLogin.get('password').touched)" 
         text="A senha deve conter no máximo 10 caracteres">
       </app-form-message-validate>
     </div>
