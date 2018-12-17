@@ -7,6 +7,8 @@ import { FormCadastroValidatorService } from './form-cadastro-validator.service'
 import { User } from '../../../interfaces/user/user';
 import { FormCadastroService } from './form-cadastro.service';
 import { FormLoginService } from '../form-login/form-login.service';
+import { formCadastroUsernameValidator } from './form-cadastro-username-validator';
+
 
 @Component({
   selector: 'app-form-cadastro',
@@ -61,6 +63,9 @@ export class FormCadastroComponent implements OnInit {
           Validators.maxLength(10)
         ]
       ]
+    },
+    {
+      validator: formCadastroUsernameValidator
     })
   }
 

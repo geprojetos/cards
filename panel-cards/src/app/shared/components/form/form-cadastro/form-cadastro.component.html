@@ -80,7 +80,7 @@
 
     <!-- login -->
     <div class="form-group">
-      <label for="userName">Digite o seu nome para cadastro:</label>
+      <label for="userName">Digite um nome para ser o seu login de usuário:</label>
 
       <div class="input-group">
         <div class="input-group-prepend">
@@ -162,6 +162,11 @@
       <app-form-message-validate
         *ngIf="formCadastro.get('password').errors?.maxlength" 
         text="A senha deve conter pelo menos 10 caracteres">
+      </app-form-message-validate>
+
+      <app-form-message-validate
+        *ngIf="formCadastro.errors?.invalidLogin" 
+        text="Nome de login e senha são iguais, favor usar uma senha diferente">
       </app-form-message-validate>
     </div>
   </fieldset>
