@@ -45,17 +45,21 @@ export class FormLoginComponent implements OnInit {
 
   login(e: Event) {
 
-    e.preventDefault()
-    const user = this.formLogin.getRawValue() as User;
+    e.preventDefault();
 
-    this._formLoginService
-      .login(user.userName, user.password)
-      .subscribe( () => {
+    if(this.formLogin.valid) {
 
-        this._router.navigate([user.userName, 'cards'])
-      }, erro => {
-
-        this.erroLogin = true;
-      })
+      const user = this.formLogin.getRawValue() as User;
+  
+      this._formLoginService
+        .login(user.userName, user.password)
+        .subscribe( () => {
+  
+          this._router.navigate([user.userName, 'cards'])
+        }, erro => {
+  
+          this.erroLogin = true;
+        })
+    }
   }
 }
