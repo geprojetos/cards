@@ -8,6 +8,7 @@ import { Observable, Subject } from 'rxjs';
 import { CardListService } from '../../card-list/card-list.service';
 import { CardBase } from '../../card-base/card-base';
 import { CardComments } from '../../card-comments/card-comments';
+import { ServiceUserService } from 'src/app/shared/services/service-user/service.user.service';
 
 @Component({
   selector: 'app-card-details-content',
@@ -36,7 +37,8 @@ export class CardDetailsContentComponent implements OnInit {
     private _cardListService: CardListService,
     private _localtion: Location,
     private _formBuilder: FormBuilder,
-    private _router: Router
+    private _router: Router,
+    private _userService: ServiceUserService
   ) { }
 
   ngOnInit() { 
@@ -142,8 +144,7 @@ export class CardDetailsContentComponent implements OnInit {
   redir(e) {
 
     if(e) {
-      
-      this._router.navigate([''])
+      this._router.navigate([this._userService.getUserName(), 'cards'], { replaceUrl: true })
     }
   }
   
