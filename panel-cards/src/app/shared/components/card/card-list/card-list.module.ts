@@ -6,11 +6,13 @@ import { CardBaseModule } from '../card-base/card-base.module';
 import { CardListService } from './card-list.service';
 import { CardListResolve } from './card-list.resolve';
 import { CardGridComponent } from './card-grid/card-grid.component';
+import { CardSearchModule } from '../card-search/card-search.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    CardBaseModule
+    CardBaseModule,
+    CardSearchModule
   ],
   declarations: [
     CardListComponent,
