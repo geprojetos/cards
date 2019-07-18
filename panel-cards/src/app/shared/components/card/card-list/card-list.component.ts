@@ -10,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 export class CardListComponent implements OnInit {
 
   cards: CardBase[] = [];
+  filter: string = '';
 
   constructor(
     private _activatedRoute: ActivatedRoute

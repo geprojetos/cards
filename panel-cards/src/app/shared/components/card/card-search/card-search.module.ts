@@ -13,7 +13,8 @@ import { CardSearchInputPipe } from './card-search-input.pipe';
     CardSearchInputPipe
   ],
   exports: [
-    CardSearchComponent
+    CardSearchComponent,
+    CardSearchInputPipe
   ]
 })
 export class CardSearchModule { }
